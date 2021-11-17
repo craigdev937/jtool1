@@ -4,12 +4,13 @@ import logger from "morgan";
 import mongoose from "mongoose";
 import { trim } from "./middleware/trim.js";
 import { userRt } from "./routes/userRt.js";
+import { actorRt } from "./routes/actorRt.js";
 import { config } from "./config/keys.js";
 
 (async () => {
     await mongoose.connect(config.MONGO_URI)
     .then(() => console.log("MongoDB is now Connected!"))
-    .then((error) => console.log(error));
+    .catch((error) => console.log(error));
     const app = express();
     app.use(helmet());
 
@@ -31,6 +32,7 @@ import { config } from "./config/keys.js";
     app.use(logger("dev"));
     app.use(trim);
     app.use("/api", userRt);
+    app.use("/api", actorRt);
     const port = process.env.PORT || 9000;
     app.listen(port, () => {
         console.log(`Server: http://localhost:${port}`);

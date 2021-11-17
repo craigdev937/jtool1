@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { config } from "../config/keys.js";
 
 export const reqLogin = (req, res, next) => {
-    const { auth } = req.headers;
+    let { auth } = req.headers;
     if (!auth) {
         return res.status(401)
             .json({ error: "Please log-in!" });
