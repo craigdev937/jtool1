@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.css";
+import { Provider } from "react-redux";
+import { RootReducer } from "../global/RootReducer";
+import { Main } from "../components/Main";
 
 export const App = (): JSX.Element => {
     return (
         <React.Fragment>
-            <h1>App</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque quod quam sit voluptatibus repellendus amet dicta esse, eos nostrum dolores atque nesciunt, ipsa adipisci explicabo sapiente. Magni deleniti sint facilis.</p>
+            <Provider store={RootReducer}>
+                <Main />
+            </Provider>
         </React.Fragment>
     );
 };
