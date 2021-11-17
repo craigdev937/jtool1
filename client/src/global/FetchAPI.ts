@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IActor } from "../models/IActor";
 const URL = "http://localhost:9000/api/actors";
 
-export const fetchActors =
+export const fetchActors = 
 createAsyncThunk("actors/fetchActors", 
 async () => {
     const res: Response = await fetch(URL);

@@ -19,7 +19,7 @@ const ActorSlice = createSlice({
     reducers: {},
     extraReducers: {
         [fetchActors.fulfilled.toString()]: 
-        (state, action: PayloadAction<IActor>) => {
+        (state, action: PayloadAction<IActor[]>) => {
             return action.payload;
         },
         [getOneActor.fulfilled.toString()]: 
